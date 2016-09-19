@@ -1,25 +1,123 @@
 <head>
-  <title>simple</title>
+  <title>海钓瞬间</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-  {{> info}}
+  <div class="container">
+    <div class="row margin-top">
+      <div class="col-xs-12">
+        {{> table}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        {{> form}}
+      </div>
+    </div>
+    <div class="row margin-top">
+      <div class="col-xs-12">
+        {{> cards}}
+      </div>
+    </div>
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="form">
+  <form class="margin-top">
+    <div class="form-group">
+      <!-- <label for="image">图片网址</label>
+      <input type="url" class="form-control" id="image" name="image" aria-describedby="image" placeholder="http://image.fami2u.com/LZL/3630Cards/noun_74544_cc_left.png"> -->
+      <label for="image">上传照片</label>
+      <input type="file" class="form-control-file" id="image" aria-describedby="fileHelp">
+      <small id="fileHelp" class="form-text text-muted">只接受正方形照片</small>
+    </div>
+    {{#if imgUrl}}
+      <img src="{{imgUrl}}" style="width: 300px;" />
+    {{/if}}
+    <div class="form-group">
+      <label for="text">文字说明（可选填）</label>
+      <input type="text" class="form-control" id="text" name="text" maxlength="10">
+      <small id="emailHelp" class="form-text text-muted">其内容要配合上方照片，最多10个字</small>
+    </div>
+    <button type="submit" class="btn btn-primary js-new-card" {{disabled}}>提交</button>
+  </form>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com">Discussions</a></li>
-  </ul>
+<template name="card">
+  <div class="col-xs-12 col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="{{image}}@_600w.jpg" alt="{{text}}">
+      <div class="card-block">
+        {{#if text}}
+          <h4 class="card-title">{{text}}</h4>
+        {{/if}}
+        <button class="btn btn-outline-danger" disabled>{{down}} 👎🏼</button>
+        <button class="btn btn-outline-success" disabled>{{up}} 👍🏼</button>
+        <button class="btn btn-danger js-delete-card">删除</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="cards">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group" role="group" aria-label="sortBy">
+        <button type="button" class="btn btn-secondary js-createdAt {{activeIf 'createdAt'}}">最近上传</button>
+        <button type="button" class="btn btn-secondary js-up {{activeIf 'up'}}">最 👍🏼</button>
+        <button type="button" class="btn btn-secondary js-down {{activeIf 'down'}}">最 👎</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row margin-top">
+    {{#each cards}}
+      {{> card}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>海钓瞬间</th>
+        <th>今天</th>
+        <th>昨天</th>
+        <th>日增长率</th>
+        <th>本周</th>
+        <th>上周</th>
+        <th>周增长率</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">开启次数</th>
+        <td>{{openToday}}</td>
+        <td>{{openYesterday}}</td>
+        <td>{{openDayRate}}</td>
+        <td>{{openThisWeek}}</td>
+        <td>{{openLastWeek}}</td>
+        <td>{{openWeekRate}}</td>
+      </tr>
+      <tr>
+        <th scope="row">滑动次数</th>
+        <td>{{swipeToday}}</td>
+        <td>{{swipeYesterday}}</td>
+        <td>{{swipeDayRate}}</td>
+        <td>{{swipeThisWeek}}</td>
+        <td>{{swipeLastWeek}}</td>
+        <td>{{swipeWeekRate}}</td>
+      </tr>
+      <tr>
+        <th scope="row">上传次数</th>
+        <td>{{uploadToday}}</td>
+        <td>{{uploadYesterday}}</td>
+        <td>{{uploadDayRate}}</td>
+        <td>{{uploadThisWeek}}</td>
+        <td>{{uploadLastWeek}}</td>
+        <td>{{uploadWeekRate}}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>

@@ -1,1 +1,8 @@
 /* CSS declarations go here */
+.margin-top {
+  margin-top: 20px;
+}
+
+img {
+  width: 100%;
+}
