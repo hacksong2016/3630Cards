@@ -4,9 +4,9 @@
 
 用户只需要做一件事：手指滑动照片给照片点赞。
 
-演示视频
-
 下载：[安卓版](https://www.pgyer.com/3630Cards) | iOS版(等待审核中)
+
+![演示动画](https://thumbs.gfycat.com/MintyBonyHapuka-size_restricted.gif)
 
 后台地址：[http://3630.fami2x.com](http://3630.fami2x.com)
 
