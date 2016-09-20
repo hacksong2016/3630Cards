@@ -34,7 +34,7 @@ Meteor.publish('stats', function() {
   }));
   Counts.publish(this, 'open-yesterday', Stats.find({
     type: 'open',
-    createdAt: {$elemMatch: {$gt: yesterdayMidnight, $lt: lastMidnight}},
+    createdAt: {$gt: yesterdayMidnight, $lt: lastMidnight},
   }));
   Counts.publish(this, 'open-this-week', Stats.find({
     type: 'open',
@@ -42,7 +42,7 @@ Meteor.publish('stats', function() {
   }));
   Counts.publish(this, 'open-last-week', Stats.find({
     type: 'open',
-    createdAt: {$elemMatch: {$gt: lastWeek, $lt: thisWeek}},
+    createdAt: {$gt: lastWeek, $lt: thisWeek},
   }));
 
   Counts.publish(this, 'swipe-today', Stats.find({
@@ -51,7 +51,7 @@ Meteor.publish('stats', function() {
   }));
   Counts.publish(this, 'swipe-yesterday', Stats.find({
     type: 'swipe',
-    createdAt: {$elemMatch: {$gt: yesterdayMidnight, $lt: lastMidnight}},
+    createdAt: {$gt: yesterdayMidnight, $lt: lastMidnight},
   }));
   Counts.publish(this, 'swipe-this-week', Stats.find({
     type: 'swipe',
@@ -59,7 +59,7 @@ Meteor.publish('stats', function() {
   }));
   Counts.publish(this, 'swipe-last-week', Stats.find({
     type: 'swipe',
-    createdAt: {$elemMatch: {$gt: lastWeek, $lt: thisWeek}},
+    createdAt: {$gt: lastWeek, $lt: thisWeek},
   }));
 
   Counts.publish(this, 'upload-today', Stats.find({
@@ -68,7 +68,7 @@ Meteor.publish('stats', function() {
   }));
   Counts.publish(this, 'upload-yesterday', Stats.find({
     type: 'upload',
-    createdAt: {$elemMatch: {$gt: yesterdayMidnight, $lt: lastMidnight}},
+    createdAt: {$gt: yesterdayMidnight, $lt: lastMidnight},
   }));
   Counts.publish(this, 'upload-this-week', Stats.find({
     type: 'upload',
@@ -76,6 +76,6 @@ Meteor.publish('stats', function() {
   }));
   Counts.publish(this, 'upload-last-week', Stats.find({
     type: 'upload',
-    createdAt: {$elemMatch: {$gt: lastWeek, $lt: thisWeek}},
+    createdAt: {$gt: lastWeek, $lt: thisWeek},
   }));
 });

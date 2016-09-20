@@ -129,7 +129,8 @@ Template.table.helpers({
     if (b === 0) {
       return 'N/A';
     } else {
-      return `${(a - b) / b * 100}%`;
+      const pct = (a - b) / b * 100;
+      return `${pct.toFixed(2)}%`;
     }
   },
   openThisWeek() {
@@ -144,7 +145,8 @@ Template.table.helpers({
     if (b === 0) {
       return 'N/A';
     } else {
-      return `${(a - b) / b * 100}%`;
+      const pct = (a - b) / b * 100;
+      return `${pct.toFixed(2)}%`;
     }
   },
   swipeToday() {
@@ -159,7 +161,8 @@ Template.table.helpers({
     if (b === 0) {
       return 'N/A';
     } else {
-      return `${(a - b) / b * 100}%`;
+      const pct = (a - b) / b * 100;
+      return `${pct.toFixed(2)}%`;
     }
   },
   swipeThisWeek() {
@@ -174,7 +177,8 @@ Template.table.helpers({
     if (b === 0) {
       return 'N/A';
     } else {
-      return `${(a - b) / b * 100}%`;
+      const pct = (a - b) / b * 100;
+      return `${pct.toFixed(2)}%`;
     }
   },
   uploadToday() {
@@ -189,7 +193,8 @@ Template.table.helpers({
     if (b === 0) {
       return 'N/A';
     } else {
-      return `${(a - b) / b * 100}%`;
+      const pct = (a - b) / b * 100;
+      return `${pct.toFixed(2)}%`;
     }
   },
   uploadThisWeek() {
@@ -204,7 +209,8 @@ Template.table.helpers({
     if (b === 0) {
       return 'N/A';
     } else {
-      return `${(a - b) / b * 100}%`;
+      const pct = (a - b) / b * 100;
+      return `${pct.toFixed(2)}%`;
     }
   },
 });
